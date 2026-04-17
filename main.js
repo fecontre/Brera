@@ -32,15 +32,9 @@ burger?.addEventListener('click', () => {
     : 'display:flex;flex-direction:column;position:fixed;top:var(--nav-h);left:0;right:0;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);padding:24px 32px;gap:20px;border-bottom:1px solid rgba(90,79,255,0.1);box-shadow:0 8px 32px rgba(90,79,255,0.08);';
 });
 
-// Form submit
+// Form submit — loading state while Formsubmit procesa el envío
 document.getElementById('contactForm')?.addEventListener('submit', (e) => {
-  e.preventDefault();
   const btn = e.target.querySelector('button[type="submit"]');
-  btn.textContent = '¡Mensaje enviado! ✓';
-  btn.style.background = '#16a34a';
-  setTimeout(() => {
-    btn.textContent = 'Enviar mensaje →';
-    btn.style.background = '';
-    e.target.reset();
-  }, 3000);
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
 });

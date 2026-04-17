@@ -275,24 +275,27 @@
           </li>
         </ul>
       </div>
-      <form class="cta__form" id="contactForm">
+      <form class="cta__form" id="contactForm" action="https://formsubmit.co/francisca@brera.cl" method="POST">
+        <input type="hidden" name="_subject" value="Nuevo mensaje desde brera.cl" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="https://brera.cl/?enviado=1" />
         <div class="form__row">
           <div class="form__field">
             <label data-i18n="form.name.label">Nombre</label>
-            <input type="text" data-i18n-ph="form.name.ph" placeholder="Tu nombre" required />
+            <input type="text" name="nombre" data-i18n-ph="form.name.ph" placeholder="Tu nombre" required />
           </div>
           <div class="form__field">
             <label data-i18n="form.company.label">Empresa</label>
-            <input type="text" data-i18n-ph="form.company.ph" placeholder="Nombre de tu empresa" />
+            <input type="text" name="empresa" data-i18n-ph="form.company.ph" placeholder="Nombre de tu empresa" />
           </div>
         </div>
         <div class="form__field">
           <label data-i18n="form.email.label">Email</label>
-          <input type="email" data-i18n-ph="form.email.ph" placeholder="correo@empresa.com" required />
+          <input type="email" name="email" data-i18n-ph="form.email.ph" placeholder="correo@empresa.com" required />
         </div>
         <div class="form__field">
           <label data-i18n="form.msg.label">Mensaje</label>
-          <textarea rows="4" data-i18n-ph="form.msg.ph" placeholder="Cuéntanos sobre tu producto o propuesta..."></textarea>
+          <textarea name="mensaje" rows="4" data-i18n-ph="form.msg.ph" placeholder="Cuéntanos sobre tu producto o propuesta..."></textarea>
         </div>
         <button type="submit" class="btn btn--primary btn--full" data-i18n="form.submit">Enviar mensaje →</button>
       </form>
