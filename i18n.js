@@ -49,8 +49,6 @@ const translations = {
     'process.s4.desc':         'Desarrollamos estrategias de activación y visibilidad en punto de venta.',
     'process.s5.title':        'Distribución',
     'process.s5.desc':         'Entregamos en toda la red nacional de retail con monitoreo constante.',
-    'brands.label':            'Alianzas',
-    'brands.title':            'Presentes en los mejores retailers',
     'contact.label':           'Contacto',
     'contact.title.line1':     '¿Tienes una marca',
     'contact.title.line2':     'que quieres traer a Chile?',
@@ -126,8 +124,6 @@ const translations = {
     'process.s4.desc':         'We develop activation strategies and point-of-sale visibility.',
     'process.s5.title':        'Distribution',
     'process.s5.desc':         'We deliver across the national retail network with constant monitoring.',
-    'brands.label':            'Partnerships',
-    'brands.title':            'Present in the best retailers',
     'contact.label':           'Contact',
     'contact.title.line1':     'Have a brand',
     'contact.title.line2':     'you want to bring to Chile?',
@@ -156,6 +152,7 @@ const translations = {
 };
 
 let currentLang = 'es';
+window.__i18nCurrent = 'es';
 
 function applyLang(lang) {
   currentLang = lang;
@@ -179,6 +176,7 @@ function applyLang(lang) {
   });
 
   document.documentElement.lang = lang;
+  window.__i18nCurrent = lang;
 }
 
 document.addEventListener('DOMContentLoaded', () => {

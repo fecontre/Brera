@@ -4,9 +4,59 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Brera — Importadora de Excelencia</title>
+  <meta name="description" content="Brera es una importadora chilena especializada en seleccionar, importar y distribuir marcas internacionales premium al retail chileno. +200 productos, +15 países, +500 puntos de venta." />
+  <link rel="canonical" href="https://brera.cl/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://brera.cl/" />
+  <meta property="og:title"       content="Brera — Importadora de Excelencia" />
+  <meta property="og:description" content="Seleccionamos, importamos y distribuimos marcas internacionales al retail chileno con estándares de clase mundial." />
+  <meta property="og:image"       content="https://brera.cl/brera_logo.svg" />
+  <meta property="og:locale"      content="es_CL" />
+  <meta property="og:site_name"   content="Brera" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Brera — Importadora de Excelencia" />
+  <meta name="twitter:description" content="Seleccionamos, importamos y distribuimos marcas internacionales al retail chileno con estándares de clase mundial." />
+  <meta name="twitter:image"       content="https://brera.cl/brera_logo.svg" />
+
+  <!-- hreflang bilingüe -->
+  <link rel="alternate" hreflang="es" href="https://brera.cl/" />
+  <link rel="alternate" hreflang="en" href="https://brera.cl/?lang=en" />
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Brera SpA",
+    "url": "https://brera.cl",
+    "logo": "https://brera.cl/brera_logo.svg",
+    "description": "Importadora chilena especializada en la distribución de marcas internacionales premium al retail.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Santiago",
+      "addressCountry": "CL"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "contacto@brera.cl",
+      "contactType": "customer service"
+    }
+  }
+  </script>
+
+  <!-- Preload LCP image -->
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1600&auto=format&fit=crop&q=80" />
+
+  <!-- Fonts — non-blocking -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -28,7 +78,7 @@
       </div>
       <a href="#contact" class="btn btn--outline" data-i18n="nav.cta">Ser distribuidor</a>
     </div>
-    <button class="nav__burger" aria-label="Menú" id="burger">
+    <button class="nav__burger" aria-label="Menú" aria-expanded="false" id="burger">
       <span></span><span></span><span></span>
     </button>
   </nav>
@@ -233,25 +283,6 @@
     </div>
   </section>
 
-  <!-- BRANDS STRIP -->
-  <section class="brands section">
-    <div class="container">
-      <div class="section__header section__header--center">
-        <span class="label" data-i18n="brands.label">Alianzas</span>
-        <h2 class="section__title" data-i18n="brands.title">Presentes en los mejores retailers</h2>
-      </div>
-      <div class="brands__logos">
-        <div class="brand-logo">Falabella</div>
-        <div class="brand-logo">Jumbo</div>
-        <div class="brand-logo">Líder</div>
-        <div class="brand-logo">Paris</div>
-        <div class="brand-logo">Ripley</div>
-        <div class="brand-logo">Easy</div>
-        <div class="brand-logo">La Polar</div>
-        <div class="brand-logo">Tottus</div>
-      </div>
-    </div>
-  </section>
 
   <!-- CONTACT / CTA -->
   <section class="cta section" id="contact">
@@ -281,21 +312,21 @@
         <input type="hidden" name="_next" value="https://brera.cl/?enviado=1" />
         <div class="form__row">
           <div class="form__field">
-            <label data-i18n="form.name.label">Nombre</label>
-            <input type="text" name="nombre" data-i18n-ph="form.name.ph" placeholder="Tu nombre" required />
+            <label for="f-nombre" data-i18n="form.name.label">Nombre</label>
+            <input id="f-nombre" type="text" name="nombre" data-i18n-ph="form.name.ph" placeholder="Tu nombre" required />
           </div>
           <div class="form__field">
-            <label data-i18n="form.company.label">Empresa</label>
-            <input type="text" name="empresa" data-i18n-ph="form.company.ph" placeholder="Nombre de tu empresa" />
+            <label for="f-empresa" data-i18n="form.company.label">Empresa</label>
+            <input id="f-empresa" type="text" name="empresa" data-i18n-ph="form.company.ph" placeholder="Nombre de tu empresa" />
           </div>
         </div>
         <div class="form__field">
-          <label data-i18n="form.email.label">Email</label>
-          <input type="email" name="email" data-i18n-ph="form.email.ph" placeholder="correo@empresa.com" required />
+          <label for="f-email" data-i18n="form.email.label">Email</label>
+          <input id="f-email" type="email" name="email" data-i18n-ph="form.email.ph" placeholder="correo@empresa.com" required autocomplete="email" />
         </div>
         <div class="form__field">
-          <label data-i18n="form.msg.label">Mensaje</label>
-          <textarea name="mensaje" rows="4" data-i18n-ph="form.msg.ph" placeholder="Cuéntanos sobre tu producto o propuesta..."></textarea>
+          <label for="f-mensaje" data-i18n="form.msg.label">Mensaje</label>
+          <textarea id="f-mensaje" name="mensaje" rows="4" data-i18n-ph="form.msg.ph" placeholder="Cuéntanos sobre tu producto o propuesta..."></textarea>
         </div>
         <button type="submit" class="btn btn--primary btn--full" data-i18n="form.submit">Enviar mensaje →</button>
       </form>

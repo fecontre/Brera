@@ -2,7 +2,7 @@
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 40);
-});
+}, { passive: true });
 
 // Fade-up observer
 const observer = new IntersectionObserver((entries) => {
@@ -24,17 +24,46 @@ document.querySelectorAll(
 
 // Mobile burger
 const burger = document.getElementById('burger');
+const navLinks = document.querySelector('.nav__links');
+
+function openMenu() {
+  navLinks.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:var(--nav-h);left:0;right:0;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);padding:24px 32px;gap:20px;border-bottom:1px solid rgba(90,79,255,0.1);box-shadow:0 8px 32px rgba(90,79,255,0.08);';
+  burger.setAttribute('aria-expanded', 'true');
+}
+
+function closeMenu() {
+  navLinks.style.cssText = '';
+  burger.setAttribute('aria-expanded', 'false');
+}
+
+function isMenuOpen() {
+  return burger.getAttribute('aria-expanded') === 'true';
+}
+
 burger?.addEventListener('click', () => {
-  const links = document.querySelector('.nav__links');
-  const isOpen = links.style.display === 'flex';
-  links.style.cssText = isOpen
-    ? ''
-    : 'display:flex;flex-direction:column;position:fixed;top:var(--nav-h);left:0;right:0;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);padding:24px 32px;gap:20px;border-bottom:1px solid rgba(90,79,255,0.1);box-shadow:0 8px 32px rgba(90,79,255,0.08);';
+  isMenuOpen() ? closeMenu() : openMenu();
+});
+
+// Close menu on nav link click
+navLinks?.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', closeMenu);
+});
+
+// Close menu on outside click
+document.addEventListener('click', (e) => {
+  if (isMenuOpen() && !nav.contains(e.target)) closeMenu();
+});
+
+// Close menu on Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && isMenuOpen()) closeMenu();
 });
 
 // Form submit — loading state while Formsubmit procesa el envío
 document.getElementById('contactForm')?.addEventListener('submit', (e) => {
   const btn = e.target.querySelector('button[type="submit"]');
-  btn.textContent = 'Enviando...';
+  const t = window.__i18nCurrent ?? 'es';
+  const sending = { es: 'Enviando...', en: 'Sending...' };
+  btn.textContent = sending[t] ?? 'Enviando...';
   btn.disabled = true;
 });
